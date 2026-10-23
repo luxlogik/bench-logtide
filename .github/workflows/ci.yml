@@ -23,7 +23,7 @@ jobs:
   # ====================
   backend-test:
     name: Backend Tests
-    runs-on: ubuntu-latest
+    runs-on: compiler-8cpu
 
     services:
       postgres:
@@ -127,7 +127,7 @@ jobs:
   # ====================
   reservoir-test:
     name: Reservoir Tests
-    runs-on: ubuntu-latest
+    runs-on: compiler-8cpu
 
     services:
       clickhouse:
@@ -206,7 +206,7 @@ jobs:
   # ====================
   typecheck:
     name: TypeScript Check
-    runs-on: ubuntu-latest
+    runs-on: compiler-8cpu
 
     steps:
       - name: Checkout
@@ -249,7 +249,7 @@ jobs:
   # ====================
   unit-test-shared-frontend:
     name: Shared + Frontend Unit Tests
-    runs-on: ubuntu-latest
+    runs-on: compiler-8cpu
 
     steps:
       - name: Checkout
@@ -285,7 +285,7 @@ jobs:
   # ====================
   e2e-test:
     name: E2E Tests
-    runs-on: ubuntu-latest
+    runs-on: compiler-8cpu
     needs: [backend-test, typecheck]
 
     steps:
@@ -353,7 +353,7 @@ jobs:
   # ====================
   build:
     name: Build Docker Images
-    runs-on: ubuntu-latest
+    runs-on: compiler-8cpu
     needs: [backend-test, reservoir-test, typecheck, e2e-test]
 
     steps:
