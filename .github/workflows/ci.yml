@@ -370,8 +370,6 @@ jobs:
           file: packages/backend/Dockerfile
           push: false
           tags: logtide/backend:${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
 
       - name: Build frontend image
         uses: docker/build-push-action@v5
@@ -380,5 +378,3 @@ jobs:
           file: packages/frontend/Dockerfile
           push: false
           tags: logtide/frontend:${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
